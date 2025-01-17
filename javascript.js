@@ -32,5 +32,5 @@ const PlayerTwo = createPlayer(2);
 // Third, create a take cell function
 
 function takeCell(cell, player){
-    cell.owner = player.owning;
+    cell.owner = player.id;
 };
