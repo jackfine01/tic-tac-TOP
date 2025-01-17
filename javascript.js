@@ -32,5 +32,39 @@ const PlayerTwo = createPlayer(2);
 // Third, create a take cell function
 
 function takeCell(cell, player){
+    if(cell.owner===0){
     cell.owner = player.id;
+    }
+    const winner = checkWin(gameboard, player);
+    if(winner){
+        console.log(winner);
+    }
+    else{
+        console.log('no winner'); 
+    }
+};
+
+// Fourth, set up winning and tying logic.
+
+function checkWin(gameboard, player){
+
+    function checkLine(a,b,c){
+        if(gameboard[a].owner===gameboard[b].owner &&
+            gameboard[b].owner===gameboard[c].owner &&
+            gameboard[a].owner !==0){
+                return player.id;
+            }
+                else
+                return 0;
+    };         
+
+        if(checkLine(0,1,2)) return player.id;
+        if(checkLine(3,4,5)) return player.id;
+        if(checkLine(6,7,8)) return player.id;
+        if(checkLine(0,3,6)) return player.id;
+        if(checkLine(1,4,7)) return player.id;
+        if(checkLine(2,5,8)) return player.id;
+        if(checkLine(0,4,8)) return player.id;
+        if(checkLine(2,4,8)) return player.id;
+
 };
