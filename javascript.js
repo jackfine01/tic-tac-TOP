@@ -37,7 +37,7 @@ function takeCell(cell, player){
     }
     const winner = checkWin(gameboard, player);
     if(winner){
-        console.log(winner);
+        console.log(winner + ' wins');
     }
     else{
         console.log('no winner'); 
