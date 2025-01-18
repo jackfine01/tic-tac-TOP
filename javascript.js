@@ -68,3 +68,25 @@ function checkWin(gameboard, player){
         if(checkLine(2,4,8)) return player.id;
 
 };
+
+// Fifth, make a display control object that manipulates the DOM
+
+function createDisplayControl(){
+    return{
+        renderBoard: function(){
+            const main = document.getElementById("main")
+            const container = document.createElement('div')
+            container.className = 'container';
+            main.appendChild(container);
+            for(let i=0;i<9;i++){
+                const cell = document.createElement('div')
+                cell.className = 'cell';
+                container.appendChild(cell);
+            }
+        },
+        resetBoard: function(){
+
+        }
+    }
+};
+const displayControl = createDisplayControl();
